@@ -83,3 +83,89 @@ hr {
   padding: 20px;
   margin: 0px;
 }
+
+.hero {
+  position: relative;
+  height: 100vh;
+  background: url(images/DALL·E\ 2025-03-23\ 13.21.23\ -\ A\ bright\ indoor\ setting\ with\ a\ white\ table\ filled\ with\ a\ variety\ of\ houseplants\ in\ modern\ pots.\ The\ plants\ include\ cacti\,\ succulents\,\ leafy\ greens\,\ an.webp);
+  display: flex;
+  /*flex-direction: column;*/
+  align-items: center;
+  justify-content: flex-start;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding-left: 50px;
+}
+
+.shippori-mincho-regular {
+  font-family: "Shippori Mincho", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.hero-text {
+  max-width: 400px;
+  backdrop-filter: blur(2px);
+  padding: 2rem 2.5rem;
+  margin: 20rem 10rem 0rem;
+  border-radius: 20px;
+  text-align: left;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+.big-text {
+  color: #fef5e9;
+  font-size: 2.5rem;
+  line-height: 1.4;
+  margin-bottom: 20px;
+}
+
+.hero-bttn {
+  background-color: #faf1e6;
+  padding: 10px;
+  font-size: 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  border: none;
+}
+
+.hero-bttn:hover {
+  background-color: #c9b194;
+}
+
+.column-plants {
+  display: flex;
+  max-width: fit-content;
+  justify-content: center;
+  gap: 2rem;
+  padding: 4rem 2rem;
+  flex-wrap: wrap; /*for phone*/
+  margin: 0 auto;
+}
+
+.product {
+  overflow: hidden;
+  text-align: center;
+  padding: 1rem;
+}
+
+.product-card img {
+  max-width: 100%;
+  max-height: 200px;
+  object-fit: contain;
+  display: block;
+  margin: 0 auto 1rem auto;
+  width: auto;
+}
+
+.product-card h3 {
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+  color: #222;
+}
+
+.product-card p {
+  font-weight: bold;
+  color: #444;
+}
