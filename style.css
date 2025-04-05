@@ -5,7 +5,7 @@
 }
 
 body {
-  background-color: #faf1e6;
+  background-color: #fdfaf6;
 }
 
 hr {
@@ -134,38 +134,247 @@ hr {
   background-color: #c9b194;
 }
 
+/* TOP 6 PLANTS */
+
 .column-plants {
+  padding-top: 50px;
   display: flex;
-  max-width: fit-content;
+  flex-wrap: wrap;
   justify-content: center;
-  gap: 2rem;
-  padding: 4rem 2rem;
-  flex-wrap: wrap; /*for phone*/
-  margin: 0 auto;
+  gap: 4rem;
+  max-width: 1000px;
+  margin: 0 auto; /*centrira*/
 }
 
 .product {
-  overflow: hidden;
+  flex: 1 1 25%;
+  max-width: 25%;
   text-align: center;
-  padding: 1rem;
 }
 
-.product-card img {
-  max-width: 100%;
-  max-height: 200px;
-  object-fit: contain;
+/*hover image effect*/
+.product {
+  position: relative;
+  width: 100%;
+  height: auto;
+  /*overflow: hidden;*/
+}
+
+.product img {
+  width: 100%;
   display: block;
-  margin: 0 auto 1rem auto;
-  width: auto;
+  transition: opacity 0.3s ease;
 }
 
-.product-card h3 {
-  font-size: 1.1rem;
-  margin-bottom: 0.5rem;
-  color: #222;
+.hover-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  z-index: 1; /*cijelo vrijeme je iza glavne slike*/
 }
 
-.product-card p {
-  font-weight: bold;
-  color: #444;
+/*kada imamo hover efekt, origigi postane nevidljiva, 
+a opacitiy od replacement je vidljiv*/
+.product:hover .hover-img {
+  opacity: 1;
+}
+
+.product:hover .default-img {
+  opacity: 0;
+}
+
+/*asseti*/
+.icon {
+  position: absolute;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.4s ease;
+  font-size: 1.4rem;
+  color: black;
+  z-index: 5;
+}
+
+.cloud {
+  top: 10px;
+  left: 20px;
+}
+
+.moon {
+  top: 10px;
+  right: 20px;
+}
+
+.sun {
+  top: 10px;
+  left: 50%;
+}
+
+.product:hover .sun {
+  animation: floatSun 0.5s ease forwards;
+}
+
+.product:hover .moon {
+  animation: floatMoon 0.5s ease forwards;
+}
+
+.product:hover .cloud {
+  animation: floatCloud 0.5s ease forwards;
+}
+
+.product:hover .cloud {
+  animation-delay: 0s;
+}
+.product:hover .moon {
+  animation-delay: 0.1s;
+}
+.product:hover .sun {
+  animation-delay: 0.2s;
+}
+
+@keyframes floatSun {
+  0% {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(0px, -50px); /*samo gore*/
+  }
+}
+
+@keyframes floatMoon {
+  0% {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(50px, -40px); /*desno gore*/
+  }
+}
+
+@keyframes floatCloud {
+  0% {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(-50px, -40px); /*lijevo gore*/
+  }
+}
+
+/*3 slike i jedna glavna sa tekstom*/
+
+.product img {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  aspect-ratio: 2 / 3; /*kontrolira dimenzije bez koristenja piksela*/
+  object-fit: cover;
+  border-radius: 0.7rem;
+  display: block;
+}
+
+.plant-care-section {
+  padding: 4rem 2rem;
+  background-color: #fdfaf6;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.top-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 2rem;
+  margin-bottom: 4rem;
+}
+
+.text-box {
+  flex: 1 1 40%;
+  font-size: 1.2rem;
+  line-height: 1.6;
+  text-align: left;
+}
+
+.main-img-box {
+  flex: 1 1 55%;
+}
+
+.main-img-box img {
+  width: 100%;
+  border-radius: 12px;
+  object-fit: cover;
+  display: block;
+}
+
+.bottom-row {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.bottom-row img {
+  width: 200px;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: 10px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  background-color: white;
+}
+
+/*Care Plant section za hover effect*/
+
+.img-container:hover {
+  cursor: pointer;
+  opacity: 50%;
+}
+
+.img-container {
+  position: relative; /*da se text moze postaviti preko slike*/
+  display: inline-block;
+  overflow: hidden;
+}
+
+.img-container img {
+  display: block;
+  transition: opacity 0.3s ease;
+}
+
+.hover-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+
+.hover-overlay span {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: black;
+  font-size: 1.2rem;
+  font-weight: 600;
+  z-index: 2;
+  padding: 0.4rem 1rem;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.img-container:hover img {
+  opacity: 0.4;
+}
+
+.img-container:hover .hover-overlay span {
+  opacity: 100%;
 }
